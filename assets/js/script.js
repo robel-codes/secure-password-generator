@@ -23,12 +23,12 @@ var includeSpecChar;
 
 // Main function to generate random password 
 function generatePassword() {
-  var passwordLength = (prompt("How many characters would you like your password to contain? (Must be between 8 to 128 characters)"));
+  var passwordLength = (prompt("How many characters would you like your password to contain? (Password must be between 8 to 128 characters long)"));
 
   // Loop if response is outside the 8 to 128 password length
-  while(passwordLength < 8 || passwordLength > 128) {
-      alert("Password length must be between 8-128 characters Try again");
-      var passwordLength = (prompt("How many characters would you like your password to contain? (Must be between 8 to 128 characters)"));
+  while(passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
+      alert("Invalid! Password length must be between 8-128 characters Try again");
+      var passwordLength = (prompt("How many characters would you like your password to contain? (Password must be between 8 to 128 characters long)"));
       } 
 
       // Repeat back how many charactes the user will have  
@@ -71,8 +71,7 @@ function generatePassword() {
         characterTypes = characterTypes.concat(upperAlpha)
     }
 
-      console.log(characterTypes)
-
+     
       // Empty string to be filled based on for loop selecting random characters from the array
       var randomPassword = ""
       
